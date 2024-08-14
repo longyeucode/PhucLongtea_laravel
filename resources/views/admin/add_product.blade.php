@@ -3,9 +3,16 @@
 @extends('admin.header')
 @section('content')
 <div class="main-content">
-  
-    <div class="div p-5">
+      
+    
     <form class="addPro p-5" action="" method="POST" enctype="multipart/form-data">
+        <div class="div p-5">
+            @if ($message = Session::get('erorr') )
+    
+        <div class="alert alert-danger  alert-block">
+       <strong>{{ $message }}</strong>
+        </div>
+        @endif
         @csrf
         <div class="form-group">
             <label for="exampleInputFile">Ảnh sản phẩm</label>

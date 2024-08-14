@@ -1,7 +1,12 @@
 @extends('header')
 @section('content')
     
+@if ($message = Session::get('success') )
 
+<div class="alert alert-success text-center alert-block">
+<strong>{{ $message }}</strong>
+</div>
+@endif
 <div class="container mt-5 ">
   <div class="row">
   <div class="product-image col-lg-3">
@@ -27,36 +32,31 @@
         <input name="quantity" type="text" class="quantity" value="1">
         {{-- <button class="btn-plus">+</button> --}}
       </div>
-      <h2 class="mt-3 text-success">Giá :{{ number_format($products->price);}} / 1ly</h2>
+      <h2 class="mt-3 text-success">Giá :{{number_format($products->price);}} / 1ly</h2>
       <button type="submit" class=" btn_dathang_deatail btn  " >Đặt hàng</button>
         </form>
-      
   </div>
 
 
 <div class="comment-section col-lg-3 border">
   <h5>Comment:</h5>
   <ul class="comment-list overflow-auto" style="font-family: 'Courier New', Courier, monospace; max-height: 300px;">
+   @foreach ($comment as $item)
     <li class="my-3">
-      <div class="user">Người Dùng A</div>
-      <div class="comment">Tôi rất hài lòng với sản phẩm này. Chất lượng rất tốt</div>
-      <div class="rating">Đánh giá: ⭐️⭐️⭐️⭐️⭐️</div>
+      <div class="user"> <strong>{{$item->user->name}}:</strong>{{$item->content}}</div>
+      <div class="comment"></div>
+      <div class="rating"><strong>Đánh giá:</strong> ⭐️⭐️⭐️⭐️⭐️</div>
+      {{$item->created_at->diffForHumans()}}
     </li>
-    <li class="my-3">
-      <div class="user">Người Dùng B</div>
-      <div class="comment">Tôi rất hài lòng với sản phẩm này. Chất lượng rất tốt</div>
-      <div class="rating">Đánh giá: ⭐️⭐️⭐️⭐️⭐️</div>
-    </li>
-    <li class="my-3">
-      <div class="user">Người Dùng B</div>
-      <div class="comment">Tôi rất hài lòng với sản phẩm này. Chất lượng rất tốt</div>
-      <div class="rating">Đánh giá: ⭐️⭐️⭐️⭐️⭐️</div>
-    </li>
+    @endforeach
     <!-- Các mục bình luận khác -->
   </ul>
   <div class="comment-input">
-    <input type="text" id="comment" placeholder="Nhập bình luận của bạn...">
-    <button>Gửi</button>
+    <form action="{{route('post_comment',$products->slug)}}">
+      <input type="text" name="content"id="comment" placeholder="Nhập bình luận của bạn...">
+      <button type="submit">Gửi</button>
+    </form>
+    
   </div>
 </div>
 </div>

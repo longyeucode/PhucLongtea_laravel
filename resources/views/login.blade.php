@@ -13,6 +13,12 @@
                     <img src="./img/logophuclong.png"
                       style="width: 185px;" alt="logo">
                     <h4 class="mt-1 mb-5 pb-1 text-success">Đăng nhập</h4>
+                    @if ($message = Session::get('success'))
+
+             <div class="alert alert-danger  alert-block">
+            <strong>{{ $message }}</strong>
+             </div>
+             @endif
                     @if ($message = Session::get('error'))
 
              <div class="alert alert-danger  alert-block">

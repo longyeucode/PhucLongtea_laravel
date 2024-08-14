@@ -12,10 +12,7 @@
             <label for="exampleInputFile">Ảnh sản phẩm</label>
             <input type="file" name="photo" id="HinhAnh">
             <div id="preview"></div>
-                    {{-- <div id="preview"></div>
-            <div class="custom-file">
-                <input value="{{$products->image}}" type="file" name="photo"  id="exampleInputFile">
-            </div> --}}
+         <img class="img-thumbnail img-fluid" style="width:100px" src="{{asset('./storage/images')}}/{{$products->image}}" alt="">
         </div>
         <div class="row">
         <div class="form-group col-6">
@@ -30,11 +27,11 @@
         <div class="form-group">
             <label for="categories">Danh mục:</label>
             <select  name="category_id" class="form-select" aria-label="Default select example">
-                <option value="{{$products->category->id}}" selected>{{$products->category->name}}</option>
-               
-             
-               
-              </select>
+                @foreach ($categories as $item)
+                <option value="{{$item->id}}" {{ $item->id == $products->category_id ? 'selected' : '' }}>{{$item->name}}</option>
+                @endforeach
+                 
+            </select>
         </div>
         <div class="form-group">
             <label for="price">Giá gốc:</label>

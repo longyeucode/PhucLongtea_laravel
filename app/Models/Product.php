@@ -28,4 +28,8 @@ public function favorites()
 {
     return $this->belongsToMany(Product::class, 'favorite_products');
 }
+public function comments()
+{
+    return $this->hasMany(Comment::class);
+}
 }

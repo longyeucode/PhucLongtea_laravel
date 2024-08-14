@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Admin\AdminController;
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,6 @@ Route::post('forgotpass_pass',[UserController::class,'resetPassword']);
 Route::prefix('user')->group(function () {
     Route::put('update_user',[UserController::class,'update_user'])->name('update_user');
 });
-
 
 //admin
    Route::get('logon', [AdminController::class,'logon'])->name('logon');
@@ -96,5 +96,8 @@ Route::prefix('cart')->group(function () {
     Route::post('/decrease_cart/{id}', [CartController::class, 'decrease_cart'])->name('decrease_cart');
 
 });
+//comment
+
+Route::get('post_comment/{slug}', [CommentController::class,'post_comment'])->name('post_comment');
 
 

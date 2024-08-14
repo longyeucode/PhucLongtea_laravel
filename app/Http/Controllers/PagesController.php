@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class PagesController extends Controller
 {
     public function index(){
-        $products = Product::orderby('created_at', 'DESC')
-        // ->where('name', 'like', '%trà sữa%')
-        ->take(8)
-        ->get();
-         return view('home',compact('products'));
+        $products_new = Product::whereRaw('DATE_ADD(created_at, INTERVAL 15 DAY) >= ?', [Carbon::now()])->take(8)->get();
+        $products_trasua = Product::orderby('created_at','DESC')->where('category_id',1)->take(8)->get();
+        $products_tra = Product::orderby('created_at','DESC')->where('category_id', 3)->take(8)->get();
+    
+         return view('home',compact('products_trasua','products_tra','products_new'));
     }
     public function contact(){
        

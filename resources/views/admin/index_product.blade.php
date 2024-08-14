@@ -9,12 +9,7 @@
     <h3 class="title-page">
         Sản phẩm 
     </h3>
-    @if ($message = Session::get('success') )
-
-    <div class="alert alert-success  alert-block">
-   <strong>{{ $message }}</strong>
-    </div>
-    @endif
+   
     @if ($message = Session::get('erorr') )
 
     <div class="alert alert-success  alert-block">
@@ -37,19 +32,21 @@
             <tr>
                 <th>STT</th>
                 <th>Ảnh sản phẩm</th>
-                <th>Tên danh mục </th>
+                <th>Tên sản phẩm  </th>
                 <th>Danh mục </th>
                 <th>Ngày tạo</th>
                 <th>Trạng thái</th>
                 <th>Tùy chọn</th>
-               
+              
             </tr>
         </thead>
         <tbody>
+
             @forelse ($products as $item)
             <tr>
                 <td>{{$loop->iteration}}</td>
-                <td> <img class="img-thumbnail img-fluid" style="width:100px" src="{{asset('./storage/images')}}/{{$item->image}}" alt=""></td>
+                
+                <td> <img class="img-thumbnail " style="width:120px" src="{{ asset('storage/images/' . $item->image) }}" alt="Product Image"></td>
                 <td>{{$item->name}}</td>
                 <td>{{$item->category->name}}</td>
                 <td>{{$item->created_at}}</td>

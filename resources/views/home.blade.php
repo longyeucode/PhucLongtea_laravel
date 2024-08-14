@@ -39,87 +39,38 @@
     </li>
     
   </ul>
-
-
-
 </div>
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-      aria-label="Slide 1" aria-current="true"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"
-      class=""></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"
-      class=""></button>
-  </div>
-
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="./img/banerphuclong3.jpg" class="d-block w-100" alt="...">
+      <img class="d-block w-100" src="./img/banerphuclong3.jpg" alt="First slide">
     </div>
     <div class="carousel-item">
-      <img src="./img/banerphuclong2.jpg" class="d-block w-100" alt="...">
+      <img class="d-block w-100" src="./img/bannerindex.jpg" alt="Second slide">
     </div>
     <div class="carousel-item">
-      <img src="./img/bannerindex.jpg" class="d-block w-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="./img/banerphuclong4.jpg" class="d-block w-100" alt="...">
+      <img class="d-block w-100" src="./img/banerphuclong2.jpg" alt="Third slide">
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-    data-bs-slide="prev">
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-    data-bs-slide="next">
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+    <span class="sr-only">Next</span>
+  </a>
 </div>
 
-<div class="container">
-  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-
-      <div class="carousel-item active">
-        <div class="row m-5">
-          <div class="col-lg-3 col-md-12 col-sm-12 mb-2">
-            <div class="card">
-              <img src="./img/banerphuclong2.jpg" class="card-img-top h-100" alt="...">
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-            <div class="card h-70">
-              <img src="./img/banerphuclong3.jpg" class="card-img-top h-100" alt="...">
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 mb-2">
-            <div class="card h-70">
-              <img src="./img/banerphuclong2.jpg" class="card-img-top h-100" alt="...">
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-12 col-sm-12 mb-2">
-            <div class="card h-70">
-              <img src="./img/bannerindex.jpg" class="card-img-top h-100" alt="...">
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
   <div class="container">
-    <div class="row ">
+    <div class="row mt-5">
       <h2 class="header-title mb-4 mt-2">
-        Hot Deal!
+        New!
       </h2>
     </div>
     <div class="row">
       
-      @foreach ($products as $item)
+      @foreach ($products_new as $item)
 
       <div class="col-lg-3 col-md-6 col-sm-12 mb-5">
         <div class="cart">
@@ -214,7 +165,7 @@
         </h2>
       </div>
       <div class="row">
-        @foreach ($products as $item)
+        @foreach ($products_trasua as $item)
 
       <div class="col-lg-3 col-md-6 col-sm-12 mb-5">
         <div class="cart">
@@ -307,7 +258,7 @@
       </h2>
     </div>
     <div class="row">
-      @foreach ($products as $item)
+      @foreach ($products_tra as $item)
 
       <div class="col-lg-3 col-md-6 col-sm-12 mb-5">
         <div class="cart">
