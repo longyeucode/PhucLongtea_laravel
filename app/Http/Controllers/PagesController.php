@@ -7,10 +7,9 @@ use Carbon\Carbon;
 class PagesController extends Controller
 {
     public function index(){
-        $products_new = Product::whereRaw('DATE_ADD(created_at, INTERVAL 15 DAY) >= ?', [Carbon::now()])->take(8)->get();
+        $products_new = Product::orderBy('created_at', 'desc')->take(8)->get();
         $products_trasua = Product::orderby('created_at','DESC')->where('category_id',1)->take(8)->get();
         $products_tra = Product::orderby('created_at','DESC')->where('category_id', 3)->take(8)->get();
-    
          return view('home',compact('products_trasua','products_tra','products_new'));
     }
     public function contact(){

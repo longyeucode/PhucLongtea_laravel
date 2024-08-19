@@ -102,11 +102,15 @@
                            <label for="size">Size</label>
                            <form action="{{ route('add_to_cart', $item->id) }}" method="POST">
                              @csrf
-                           <select name="size" id="size" class="form-control" required>
-                               <option value="Small">Small</option>
-                               <option value="Medium">Medium</option>
-                               <option value="Large">Large</option>
-                           </select>
+                             <label class="btn btn-outline-primary flex-fill">
+                              <input type="radio" name="size" id="mediumSize" value="Small" autocomplete="off">  Small
+                          </label>
+                             <label class="btn btn-outline-primary flex-fill">
+                              <input type="radio" name="size" id="mediumSize" value="Medium" autocomplete="off"> Medium
+                          </label>
+                          <label class="btn btn-outline-primary flex-fill">
+                            <input type="radio" name="size" id="mediumSize" value="Large" autocomplete="off"> Large
+                        </label>
                        </div>
                          <div class="quantity-input">
                           <div class="quantity-input">
@@ -116,14 +120,13 @@
                           </div>
                          </div>
                          <h2 class="mt-3 text-success">Giá :<?= number_format($item['price']);?> / 1ly</h2>
-                         <button type="submit" class=" btn_dathang_deatail btn  " >Đặt hàng</button>
-                       </form>
+                         {{-- <button type="submit" class=" btn_dathang_deatail btn  " >Đặt hàng</button> --}}
+                       
                      </div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <form action="{{ route('add_to_cart', $item->id) }}" method="POST">
-                      @csrf
+                  
                       <button type="submit" class="btn btn-success">Đặt hàng</button>
                   </form>
                   </div>
@@ -161,7 +164,7 @@
     <div class="container">
       <div class="row ">
         <h2 class="header-title mb-4 mt-2">
-          Trà sữa 
+          Trà sữa
         </h2>
       </div>
       <div class="row">
@@ -208,17 +211,17 @@
                            <input type="text" class="quantity" value="0">
                            <button class="btn-plus">+</button>
                          </div>
-                         <h2 class="mt-3 text-success">Giá :<?= number_format($item['price']);?> / 1ly</h2>
-                         <button type="submit" class=" btn_dathang_deatail btn  " >Đặt hàng</button>
-                       </form>
+                         <h2 class="mt-3 text-success">Giá :<?= number_format($item['price']);?>/1ly</h2>
+                         {{-- <button type="submit" class=" btn_dathang_deatail btn  " >Đặt hàng</button> --}}
+                     
                      </div>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <form action="{{ route('add_to_cart', $item->id) }}" method="POST">
+                   
                       @csrf
-                      <button type="submit" class="btn btn-success">Đặt hàng</button>
-                  </form>
+                      <button type="submit" class="btn btn-success">Đặt hàn</button>
+                    </form>
                   </div>
                 </div>
               </div>
